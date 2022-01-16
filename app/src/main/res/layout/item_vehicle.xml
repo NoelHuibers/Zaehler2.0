@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data
+        class="ItemVehicleBinding">
+
+        <variable
+            name="vehicleModel"
+            type="com.noelHuibers.counterapp.model.VehicleModel" />
+
+        <variable
+            name="vehiclesViewModel"
+            type="com.noelHuibers.counterapp.viewmodel.VehiclesViewModel" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{()->vehiclesViewModel.onItemClick(vehicleModel)}">
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{vehicleModel.name}"
+            tools:text="@string/car"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="?attr/black_white" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/dotted_line"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" />
+
+
+    </LinearLayout>
+</layout>

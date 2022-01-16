@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="SettingActivityBinding">
+
+        <variable
+            name="settingViewModel"
+            type="com.noelHuibers.counterapp.viewmodel.SettingViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/white_black"
+        android:orientation="vertical"
+        tools:context=".activities.SettingActivity">
+
+        <RelativeLayout
+            android:id="@+id/layout_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/white_bottom_shadow"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="RelativeOverlap,RtlSymmetry,UseCompoundDrawables">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->settingViewModel.onBackClick()}"
+                    android:paddingStart="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:tint="?attr/black_white"
+                        android:src="@mipmap/ic_back_counter"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/settings"
+                    android:textColor="?attr/shark_geyser"
+                    android:textSize="20sp"
+                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UselessParent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/layout_toggle"
+                        android:orientation="vertical"
+                        android:paddingEnd="10dp"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/dark_mode"
+                            android:textColor="?attr/shark_geyser"
+                            android:textSize="14sp"
+                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/set_the_background_color"
+                            android:textColor="@color/pale_sky"
+                            android:textSize="12sp"
+                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_toggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true">
+
+
+                        <ToggleButton
+                            android:id="@+id/toggle_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/toggle_selecto"
+                            android:textOff=""
+                            android:textOn="" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/pale_sky" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UselessParent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/layout_edittext"
+                        android:orientation="vertical"
+                        android:paddingEnd="10dp"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/step_count"
+                            android:textColor="?attr/shark_geyser"
+                            android:textSize="14sp"
+                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/set_the_amount_of_steps"
+                            android:textColor="@color/pale_sky"
+                            android:textSize="12sp"
+                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_edittext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="?attr/black_white"
+                            android:fontFamily="@font/roboto_regular"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:text="@string/_00"
+                            android:textColor="?attr/black_white"
+                            android:textSize="16sp"
+                            tools:ignore="LabelFor,TextFields" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/pale_sky" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UselessParent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ic_flag"
+                        android:orientation="vertical"
+                        android:paddingEnd="10dp"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/language"
+                            android:textColor="?attr/shark_geyser"
+                            android:textSize="14sp"
+                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/choose_your_language"
+                            android:textColor="@color/pale_sky"
+                            android:textSize="12sp"
+                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+                    </LinearLayout>
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ic_flag"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_flag"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

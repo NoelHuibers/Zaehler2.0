@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="white_black" format="color"/>
+    <attr name="black_white" format="color"/>
+    <attr name="shark_geyser" format="color"/>
+    <attr name="silver_pale_sky" format="color"/>
+</resources>

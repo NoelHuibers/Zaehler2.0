@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="NumberCountActivityBinding">
+
+        <variable
+            name="numberCountViewModel"
+            type="com.noelHuibers.counterapp.viewmodel.NumberCountViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/white_black"
+        tools:context=".activities.NumberCountActivity">
+
+        <RelativeLayout
+            android:id="@+id/layout_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/white_bottom_shadow"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:id="@+id/layout_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="RelativeOverlap,RtlSymmetry,UseCompoundDrawables">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->numberCountViewModel.backClick()}"
+                    android:paddingStart="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_back_counter"
+                        android:tint="?attr/black_white"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_rooms_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/counter"
+                    android:textColor="?attr/shark_geyser"
+                    android:textSize="20sp"
+                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_icons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                tools:ignore="RtlHardcoded"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/iv_settings"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_settings"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp">
+
+
+                    <ImageView
+                        android:id="@+id/iv_search"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_search"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/rounded_5_white_boarder"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/search"
+                    android:importantForAutofill="no"
+                    android:includeFontPadding="false"
+                    android:inputType="text|textNoSuggestions"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="?attr/shark_geyser"
+                    android:textColorHint="#48000000"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/layout_cross"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_cross_white"
+                        app:tint="?attr/shark_geyser"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/layout_top_bar"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/car"
+                android:textColor="?attr/black_white"
+                android:textSize="40sp"
+                tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:src="@drawable/ic_cars"
+                app:tint="?attr/black_white"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30sp"
+                android:layout_marginEnd="30dp">
+
+                <ImageView
+                    android:id="@+id/iv_sub"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_silver_pale_scale"
+                    android:onClick="@{()->numberCountViewModel.subClick()}"
+                    android:padding="19dp"
+                    android:src="@drawable/ic_sub"
+                    app:tint="?attr/white_black"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tv_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toStartOf="@id/iv_add"
+                    android:layout_toEndOf="@id/iv_sub"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_horizontal"
+                    android:text="@string/_60"
+                    android:textColor="?attr/black_white"
+                    android:textSize="40sp"
+                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+
+                <ImageView
+                    android:id="@+id/iv_add"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_silver_pale_scale"
+                    android:onClick="@{()->numberCountViewModel.addClick()}"
+                    android:padding="19dp"
+                    android:src="@drawable/ic_add"
+                    app:tint="?attr/white_black"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

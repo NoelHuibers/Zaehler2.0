@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemCarsBinding">
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="carModel"
+            type="com.noelHuibers.counterapp.model.CarModel" />
+
+        <variable
+            name="mainActivityViewModel"
+            type="com.noelHuibers.counterapp.viewmodel.MainActivityViewModel" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:gravity="center_horizontal"
+        >
+
+
+        <TextView
+            android:id="@+id/tv_item_count"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle_silver_pale_scale"
+            android:padding="10dp"
+            tools:text="20"
+            android:textSize="20sp"
+            android:textColor="?attr/black_white"
+            android:gravity="center"
+            android:visibility="@{!carModel.isAdd ? (mainActivityViewModel.isCounterVisible ? View.VISIBLE : View.GONE) : View.GONE}"
+            android:text="@{String.valueOf( carModel.number)}"
+            android:onClick="@{()->mainActivityViewModel.showCountItemClick(carModel)}"
+            tools:ignore="ContentDescription"
+            android:onLongClick="@{(view) -> mainActivityViewModel.onLongClick(view, carModel)}"
+            />
+
+
+        <ImageView
+            android:id="@+id/iv_item"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle_silver_pale_scale"
+            android:padding="10dp"
+            android:src="@drawable/ic_cars"
+            bind:imgId="@{carModel.imgId}"
+            android:visibility="@{!carModel.isAdd ? (mainActivityViewModel.isCarVisible ? View.VISIBLE : View.GONE) : View.GONE}"
+            android:onClick="@{()->mainActivityViewModel.showItemClick(carModel)}"
+            tools:ignore="ContentDescription"
+            android:onLongClick="@{(view) -> mainActivityViewModel.onLongClick(view, carModel)}"/>
+
+        <ImageView
+            android:id="@+id/iv_add_new"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@mipmap/ic_circle_dotted"
+            android:padding="15dp"
+            android:src="@drawable/ic_add"
+            tools:ignore="ContentDescription"
+            android:onClick="@{()->mainActivityViewModel.addNewClick(carModel)}"/>
+
+
+    </RelativeLayout>
+</layout>
