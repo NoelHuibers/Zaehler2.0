@@ -12,8 +12,8 @@ import com.noelHuibers.counterapp.activities.NumberCountActivity;
 import com.noelHuibers.counterapp.activities.SettingActivity;
 import com.noelHuibers.counterapp.activities.VehiclesActivity;
 import com.noelHuibers.counterapp.common.Constant;
-import com.noelHuibers.counterapp.model.CarModel;
-import com.noelHuibers.counterapp.repository.CarRepository;
+import com.noelHuibers.counterapp.model.CounterModel;
+import com.noelHuibers.counterapp.repository.CounterRepository;
 
 import java.util.List;
 
@@ -24,38 +24,38 @@ public class MainActivityViewModel extends ViewModel {
     @SuppressLint("StaticFieldLeak")
     Context context;
     Constant constant;
-    private final CarRepository carRepository;
+    private final CounterRepository counterRepository;
 
     public MainActivityViewModel(Context context, Constant constant) {
         this.context = context;
         this.constant = constant;
-        carRepository = new CarRepository(constant);
+        counterRepository = new CounterRepository(constant);
         isCarVisible.set(true);
         isCounterVisible.set(false);
     }
 
 
-    public MutableLiveData<List<CarModel>> getCars() {
-        return carRepository.getCarsMutableLiveData();
+    public MutableLiveData<List<CounterModel>> getCounters() {
+        return counterRepository.getCountersMutableLiveData(context);
     }
 
-    public void addNewClick(CarModel data) {
+    public void addNewClick(CounterModel data) {
         constant.startActivityIntent(context, VehiclesActivity.class);
     }
 
-    public void showItemClick(CarModel data) {
+    public void showItemClick(CounterModel data) {
         //constant.startActivityIntent(context, CounterActivity.class);
         isCarVisible.set(false);
         isCounterVisible.set(true);
     }
 
-    public void showCountItemClick(CarModel data) {
+    public void showCountItemClick(CounterModel data) {
         isCarVisible.set(true);
         isCounterVisible.set(false);
         //constant.startActivityIntent(context, CounterActivity.class);
     }
 
-    public boolean onLongClick(View view,CarModel carModel) {
+    public boolean onLongClick(View view,CounterModel counterModel) {
         constant.startActivityIntent(context, NumberCountActivity.class);
         return true;
     }

@@ -8,8 +8,8 @@
         <import type="android.view.View"/>
 
         <variable
-            name="carModel"
-            type="com.noelHuibers.counterapp.model.CarModel" />
+            name="counterModel"
+            type="com.noelHuibers.counterapp.model.CounterModel" />
 
         <variable
             name="mainActivityViewModel"
@@ -38,11 +38,11 @@
             android:textSize="20sp"
             android:textColor="?attr/black_white"
             android:gravity="center"
-            android:visibility="@{!carModel.isAdd ? (mainActivityViewModel.isCounterVisible ? View.VISIBLE : View.GONE) : View.GONE}"
-            android:text="@{String.valueOf( carModel.number)}"
-            android:onClick="@{()->mainActivityViewModel.showCountItemClick(carModel)}"
+            android:visibility="@{!counterModel.isAdd ? (mainActivityViewModel.isCounterVisible ? View.VISIBLE : View.GONE) : View.GONE}"
+            android:text="@{String.valueOf(counterModel.number)}"
+            android:onClick="@{()->mainActivityViewModel.showCountItemClick(counterModel)}"
             tools:ignore="ContentDescription"
-            android:onLongClick="@{(view) -> mainActivityViewModel.onLongClick(view, carModel)}"
+            android:onLongClick="@{(view) -> mainActivityViewModel.onLongClick(view, counterModel)}"
             />
 
 
@@ -55,23 +55,23 @@
             android:background="@drawable/circle_silver_pale_scale"
             android:padding="10dp"
             android:src="@drawable/ic_cars"
-            bind:imgId="@{carModel.imgId}"
-            android:visibility="@{!carModel.isAdd ? (mainActivityViewModel.isCarVisible ? View.VISIBLE : View.GONE) : View.GONE}"
-            android:onClick="@{()->mainActivityViewModel.showItemClick(carModel)}"
+            bind:imgId="@{counterModel.imgId}"
+            android:visibility="@{!counterModel.isAdd ? (mainActivityViewModel.isCounterVisible ? View.VISIBLE : View.GONE) : View.GONE}"
+            android:onClick="@{()->mainActivityViewModel.showItemClick(counterModel)}"
             tools:ignore="ContentDescription"
-            android:onLongClick="@{(view) -> mainActivityViewModel.onLongClick(view, carModel)}"/>
+            android:onLongClick="@{(view) -> mainActivityViewModel.onLongClick(view, counterModel)}"/>
 
         <ImageView
-            android:id="@+id/iv_add_new"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:background="@mipmap/ic_circle_dotted"
-            android:padding="15dp"
-            android:src="@drawable/ic_add"
-            tools:ignore="ContentDescription"
-            android:onClick="@{()->mainActivityViewModel.addNewClick(carModel)}"/>
+                android:id="@+id/iv_add_new"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@mipmap/ic_circle_dotted"
+                android:padding="15dp"
+                android:src="@drawable/ic_add"
+                tools:ignore="ContentDescription"
+                android:onClick="@{()->mainActivityViewModel.addNewClick(counterModel)}" android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp" android:layout_marginEnd="5dp" android:layout_marginBottom="5dp"/>
 
 
     </RelativeLayout>

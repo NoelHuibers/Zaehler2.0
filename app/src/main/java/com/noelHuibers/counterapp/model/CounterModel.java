@@ -1,20 +1,31 @@
 package com.noelHuibers.counterapp.model;
 
+import android.widget.ImageView;
+import androidx.databinding.BindingAdapter;
+import com.noelHuibers.counterapp.R;
+
+/**
+ * @author Noel Huibers
+ */
 public class CounterModel {
 
 
     //Class variables
     static int id;
     public int number = 0;
-    int stepCount = 1;
-    CountingObject name;
+    public static int stepCount = 1;
+    boolean isAdd;
+    String name;
+    int imgId;
 
     /**
      * Diese ist der Konstruktor der Klasse Zähler. Diese Funktion wird beim erstellen des Objekts ausgeführt und setzt den Namen des Objekts, welches gezählt wird.
      * @param name;
      * @ensures this.name = name;
      */
-    public CounterModel(CountingObject name){
+    public CounterModel(String name, boolean isAdd){
+        this.isAdd = isAdd;
+        this.imgId = R.drawable.ic_cars;
         this.name = name;
         id++;
     }
@@ -86,4 +97,31 @@ public class CounterModel {
     public void setStartValue(int number) {
         this.number = number;
     }
+
+    @BindingAdapter({ "imgId" })
+    public static void loadImage(ImageView imageView, int imgId) {
+        imageView.setImageResource(imgId);
+       /* Glide.with(imageView.getContext())
+                .setDefaultRequestOptions(new RequestOptions()
+                        .circleCrop())
+                .load(imageURL)
+                .placeholder(R.drawable.loading)
+                .into(imageView);*/
+    }
+    public boolean isAdd() {
+        return isAdd;
+    }
+
+    public void setAdd(boolean add) {
+        isAdd = add;
+    }
+
+    public int getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
+    }
+
 }

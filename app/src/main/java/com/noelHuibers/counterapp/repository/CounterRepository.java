@@ -1,8 +1,9 @@
 package com.noelHuibers.counterapp.repository;
 
+import android.content.Context;
 import androidx.lifecycle.MutableLiveData;
 
-import com.noelHuibers.counterapp.model.CountingObject;
+import com.noelHuibers.counterapp.Storage.StorageCounterModelService;
 import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.common.Constant;
 
@@ -20,11 +21,10 @@ public class CounterRepository {
         this.constant = constant;
     }
 
-    public MutableLiveData<List<CounterModel>> getCountersMutableLiveData() {
-        counterModelList.clear();
-        counterModelList.add(new CounterModel(CountingObject.CAR));
-        counterModelList.add(new CounterModel(CountingObject.BUS));
-        counterModelList.add(new CounterModel(CountingObject.BIRD));
+    public MutableLiveData<List<CounterModel>> getCountersMutableLiveData(Context context) {
+        ArrayList<CounterModel> counterModelList = StorageCounterModelService.getCounter(context);
+        CounterModel counterModel = new CounterModel("AddButton",true);
+        counterModelList.add(counterModel);
         counterListMutableLiveDate.postValue(counterModelList);
         return counterListMutableLiveDate;
     }

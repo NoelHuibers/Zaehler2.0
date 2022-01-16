@@ -30,7 +30,7 @@ public class CounterViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<CounterModel>> getCounters() {
-        return counterRepository.getCountersMutableLiveData();
+        return counterRepository.getCountersMutableLiveData(context);
     }
 
     public void  addNewClick(CounterModel data) {

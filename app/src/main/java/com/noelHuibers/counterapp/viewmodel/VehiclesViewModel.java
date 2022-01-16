@@ -6,7 +6,9 @@ import android.content.Context;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.noelHuibers.counterapp.Storage.StorageCounterModelService;
 import com.noelHuibers.counterapp.common.Constant;
+import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.model.VehicleModel;
 import com.noelHuibers.counterapp.repository.VehiclesRepository;
 
@@ -30,6 +32,7 @@ public class VehiclesViewModel extends ViewModel {
     }
 
     public void onItemClick(VehicleModel data) {
+        StorageCounterModelService.addCounter(context, new CounterModel(data.getName(),false));
         constant.moveBack();
     }
 

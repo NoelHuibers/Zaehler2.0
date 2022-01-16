@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.noelHuibers.counterapp.common.Constant;
+import com.noelHuibers.counterapp.databinding.SettingActivityBinding;
+import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.viewmodel.SettingViewModel;
 
 
@@ -14,16 +16,21 @@ public class SettingViewModelFactory implements ViewModelProvider.Factory {
 
     private final Context context;
     private final Constant constant;
+    private final SettingActivityBinding binding;
+    private final int stepCount;
 
 
-    public SettingViewModelFactory(Context context, Constant constant) {
+    public SettingViewModelFactory(Context context, Constant constant, SettingActivityBinding binding) {
         this.context = context;
         this.constant = constant;
+        this.binding = binding;
+        this.stepCount = CounterModel.stepCount;
+        binding.stepcount.setText(this.stepCount);
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new SettingViewModel(context, constant);
+        return (T) new SettingViewModel(context, constant, binding);
     }
 }

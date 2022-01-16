@@ -9,7 +9,7 @@ import android.util.Log;
 import android.widget.GridView;
 
 import com.noelHuibers.counterapp.R;
-import com.noelHuibers.counterapp.adapters.CarAdapter;
+import com.noelHuibers.counterapp.adapters.CounterAdapter;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.MainActivityBinding;
 import com.noelHuibers.counterapp.viewmodel.MainActivityViewModel;
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Constant constant;
     MainActivityBinding binding;
     MainActivityViewModel mainActivityViewModel;
-    CarAdapter carAdapter;
+    CounterAdapter counterAdapter;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -30,8 +30,14 @@ public class MainActivity extends AppCompatActivity {
         initConstant();
         initViewModel();
         initRecyclerView();
-        getCarsLis();
+        getCounterList();
         constant.applyMode();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getCounterList();
     }
 
     private void initConstant() {
@@ -46,18 +52,16 @@ public class MainActivity extends AppCompatActivity {
         binding.setMainActivityViewModel(mainActivityViewModel);
     }
 
-
     private void initRecyclerView() {
-        carAdapter = new CarAdapter(constant, this);
+        counterAdapter = new CounterAdapter(constant, this);
         GridView gvCars = binding.gvCars;
-        gvCars.setAdapter(carAdapter);
+        gvCars.setAdapter(counterAdapter);
     }
 
-    private void getCarsLis() {
-        mainActivityViewModel.getCars().observe(this, results -> {
+    private void getCounterList() {
+        mainActivityViewModel.getCounters().observe(this, results -> {
             if (results != null) {
-                carAdapter.refreshList(results);
-                Log.i(TAG, "getCarsLis: " + results.toString());
+                counterAdapter.refreshList(results);
             }
         });
     }

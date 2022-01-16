@@ -83,7 +83,7 @@ public class Constant {
             }
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         } catch (Exception exception) {
-            Log.i(TAG, "hideKeyboard: Exeption " + exception.getMessage());
+            Log.i(TAG, "hideKeyboard: Exception " + exception.getMessage());
         }
     }
 

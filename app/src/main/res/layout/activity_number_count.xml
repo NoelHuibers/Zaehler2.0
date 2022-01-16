@@ -220,32 +220,31 @@
                     tools:ignore="ContentDescription,RtlHardcoded" />
 
                 <TextView
-                    android:id="@+id/tv_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="5dp"
-                    android:layout_toStartOf="@id/iv_add"
-                    android:layout_toEndOf="@id/iv_sub"
-                    android:fontFamily="@font/roboto_regular"
-                    android:gravity="center_horizontal"
-                    android:text="@string/_60"
-                    android:textColor="?attr/black_white"
-                    android:textSize="40sp"
-                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+                        android:id="@+id/tv_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_toStartOf="@id/iv_add"
+                        android:layout_toEndOf="@id/iv_sub"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center_horizontal"
+                        android:text="@string/_60"
+                        android:textColor="?attr/black_white"
+                        android:textSize="40sp"
+                        tools:ignore="ObsoleteLayoutParam,RtlHardcoded" android:layout_centerInParent="true"/>
 
                 <ImageView
-                    android:id="@+id/iv_add"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_gravity="center"
-                    android:background="@drawable/circle_silver_pale_scale"
-                    android:onClick="@{()->numberCountViewModel.addClick()}"
-                    android:padding="19dp"
-                    android:src="@drawable/ic_add"
-                    app:tint="?attr/white_black"
-                    tools:ignore="ContentDescription,RtlHardcoded" />
+                        android:id="@+id/iv_add"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_silver_pale_scale"
+                        android:onClick="@{()->numberCountViewModel.addClick()}"
+                        android:padding="19dp"
+                        android:src="@drawable/ic_add"
+                        app:tint="?attr/white_black"
+                        tools:ignore="ContentDescription,RtlHardcoded"/>
 
             </RelativeLayout>
 

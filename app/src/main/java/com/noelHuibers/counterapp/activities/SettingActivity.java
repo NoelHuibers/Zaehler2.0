@@ -51,7 +51,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void initViewModel() {
-        settingViewModel = new ViewModelProvider(this, new SettingViewModelFactory(this, constant)).get(SettingViewModel.class);
+        settingViewModel = new ViewModelProvider(this, new SettingViewModelFactory(this, constant, binding)).get(SettingViewModel.class);
         binding.setLifecycleOwner(this);
         binding.setSettingViewModel(settingViewModel);
     }

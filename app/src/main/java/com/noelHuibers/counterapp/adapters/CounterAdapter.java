@@ -26,6 +26,7 @@ public class CounterAdapter extends BaseAdapter {
     List<CounterModel> counterModelList;
     ItemCounterBinding binding;
 
+
     public CounterAdapter(Constant constant, Context context) {
         this.constant = constant;
         this.context = context;
@@ -64,13 +65,24 @@ public class CounterAdapter extends BaseAdapter {
         binding.setCounterModel(counterModel);
         CounterViewModel presenter = new CounterViewModel(parent.getContext(), constant);
         binding.setVariable(BR.counterViewModel, presenter);
+        if (counterModel.isAdd()){
+            binding.ivAddNew.setVisibility(View.VISIBLE);
+            binding.tvItem.setVisibility(View.GONE);
+        }else {
+            binding.ivAddNew.setVisibility(View.GONE);
+            binding.tvItem.setVisibility(View.VISIBLE);
+        }
+
         return binding.getRoot();
 
     }
 
+    @Override
+    public boolean isEnabled(int position) {
+        return false;
+    }
     public void refreshList(List<CounterModel> refreshList) {
         this.counterModelList = refreshList;
         notifyDataSetChanged();
     }
-
 }

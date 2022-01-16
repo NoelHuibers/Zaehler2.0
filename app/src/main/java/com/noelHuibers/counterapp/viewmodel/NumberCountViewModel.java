@@ -5,8 +5,12 @@ import android.content.Context;
 
 import androidx.lifecycle.ViewModel;
 
+import com.noelHuibers.counterapp.Storage.StorageCounterModelService;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.NumberCountActivityBinding;
+import com.noelHuibers.counterapp.model.CounterModel;
+
+import java.util.ArrayList;
 
 public class NumberCountViewModel extends ViewModel {
 
@@ -14,25 +18,27 @@ public class NumberCountViewModel extends ViewModel {
     Context context;
     Constant constant;
     NumberCountActivityBinding binding;
+    CounterModel counter;
 
     public NumberCountViewModel(Context context, Constant constant, NumberCountActivityBinding binding) {
         this.context = context;
         this.constant = constant;
         this.binding = binding;
+        ArrayList<CounterModel> counterModels = StorageCounterModelService.getCounter(context);
+        this.counter = counterModels.get(0);
+        int value = counter.getNumber();
+        binding.tvCount.setText(String.valueOf(value));
     }
 
-
     public void  addClick() {
-        int value = Integer.parseInt(binding.tvCount.getText().toString());
-        value = value + 1;
+        counter.countUp();
+        int value = counter.getNumber();
         binding.tvCount.setText(String.valueOf(value));
     }
 
     public void  subClick() {
-        int value = Integer.parseInt(binding.tvCount.getText().toString());
-        if (value < 1)
-            return;
-        value = value - 1;
+        counter.countDown();
+        int value = counter.getNumber();
         binding.tvCount.setText(String.valueOf(value));
     }
 

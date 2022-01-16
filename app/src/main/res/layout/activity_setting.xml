@@ -163,6 +163,7 @@
                     android:layout_height="wrap_content"
                     tools:ignore="UselessParent">
 
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -203,6 +204,7 @@
                         android:layout_centerVertical="true">
 
                         <EditText
+                                android:id="@+id/stepcount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="?attr/black_white"

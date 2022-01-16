@@ -45,4 +45,6 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
