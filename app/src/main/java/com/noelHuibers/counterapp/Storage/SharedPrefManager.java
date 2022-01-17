@@ -29,7 +29,7 @@ public class SharedPrefManager {
      * Diese Methode synchronisiert die Instanz des Objekts.
      * @param mCtx;
      * @ensures mInstance = new SharedPrefManager(mCtx)
-     * @returns mInstance;
+     * @return mInstance;
      */
     public static synchronized SharedPrefManager getInstance(Context mCtx) {
         if (mInstance == null) {
@@ -40,7 +40,7 @@ public class SharedPrefManager {
 
     /**
      * Diese Methode checkt ob der Nutzer eingeloggt ist und die Einstellung damit abrufbar
-     * @returns sharedPrefrences.getString();
+     * @return sharedPrefrences.getString();
      */
     public boolean isLoggedIn(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
