@@ -36,6 +36,7 @@ public class StorageCounterModelService {
      *
      * @param context;
      * @param counter;
+     * @ensures counter.added();
      */
     public static void addCounter(Context context, CounterModel counter) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
@@ -56,6 +57,7 @@ public class StorageCounterModelService {
      *
      * @param context;
      * @param counter;
+     * @ensures counter.removed();
      */
     public static void removeCounter(Context context, CounterModel counter) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
