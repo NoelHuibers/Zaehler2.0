@@ -5,10 +5,12 @@ import androidx.databinding.BindingAdapter;
 import com.noelHuibers.counterapp.R;
 
 /**
+ * Die Klasse CounterModel beschreibt einen Zählermodel, in welchem man Schrittzahl und zu zählendes Objekt auswählen kann.
+ *
  * @author Noel Huibers
+ * @version 2.0.0
  */
 public class CounterModel {
-
 
     //Class variables
     static int id;
@@ -92,12 +94,11 @@ public class CounterModel {
         this.number=number;
     }
 
-
-
-    public void setStartValue(int number) {
-        this.number = number;
-    }
-
+    /**
+     * Diese Funktion ist zum Laden des Bildes des ausgewählten Zählerobjektes.
+     * @param imageView, imgId;
+     * @ensures imageView.setImageResource(imgId);
+     */
     @BindingAdapter({ "imgId" })
     public static void loadImage(ImageView imageView, int imgId) {
         imageView.setImageResource(imgId);
@@ -108,20 +109,38 @@ public class CounterModel {
                 .placeholder(R.drawable.loading)
                 .into(imageView);*/
     }
-    public boolean isAdd() {
+    
+    /**
+     * Diese Funktion ist zum herausfinden, ob das Objekt der Addbutton ist.
+     * @return isAdd;
+     */
+    public boolean getIsAdd() {
         return isAdd;
     }
 
+    /**
+     * Diese Funktion ist zum setzen des Objektes zum addButton
+     * @param add;
+     * @ensures this.isAdd = add;
+     */
     public void setAdd(boolean add) {
-        isAdd = add;
+        this.isAdd = add;
     }
-
+    
+    /**
+     * Diese Funktion ist die getter Methode der Image Id.
+     * @return imgId;
+     */
     public int getImgId() {
         return imgId;
     }
 
+    /**
+     * Diese Funktion ist die setter Methode der Image Id.
+     * @param imgId
+     * @ensures this.imgId = imgId;
+     */
     public void setImgId(int imgId) {
         this.imgId = imgId;
     }
-
 }
