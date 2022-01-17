@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Die Klasse SharedPrefManager findet die Nutzereinstellungen des genutzen Android Gerätes heraus und stellt die App dementsprechend standartmäßig auf Dark- oder Whitemode.
+ * Die Klasse SharedPrefManager speichert die Nutzereinstellungen des genutzen Android Gerätes heraus und stellt die App dementsprechend standartmäßig auf Dark- oder Whitemode.
  *
  * @author Noel Huibers
  * @version 2.0.0
