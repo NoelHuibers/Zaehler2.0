@@ -10,7 +10,6 @@ public class VehicleModel {
 
     //Class Variables
     String name;
-
     
     /**
      * Diese ist der Konstruktor der Klasse VehicleModel. Diese Funktion wird beim erstellen des Objekts ausgeführt und setzt den Namen des Objekts, welches gezählt wird.
