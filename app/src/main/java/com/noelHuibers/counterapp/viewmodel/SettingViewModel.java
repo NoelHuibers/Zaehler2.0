@@ -24,7 +24,6 @@ public class SettingViewModel extends ViewModel {
         this.constant = constant;
         this.binding = binding;
         this.stepCount = CounterModel.stepCount;
-        binding.stepcount.setText(this.stepCount);
     }
 
     public void onBackClick() {

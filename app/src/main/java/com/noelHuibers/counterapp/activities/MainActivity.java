@@ -15,14 +15,29 @@ import com.noelHuibers.counterapp.databinding.MainActivityBinding;
 import com.noelHuibers.counterapp.viewmodel.MainActivityViewModel;
 import com.noelHuibers.counterapp.viewmodelfactory.MainActivityViewModelFactory;
 
+/**
+ * Die Klasse MainActivity ist die Activity Klasse für die Main Seite.
+ *
+ * @author Noel Huibers
+ * @version 2.0.0
+ */
 public class MainActivity extends AppCompatActivity {
 
+    //Class Variables
     Constant constant;
     MainActivityBinding binding;
     MainActivityViewModel mainActivityViewModel;
     CounterAdapter counterAdapter;
     private static final String TAG = "MainActivity";
 
+    /**
+     * Die Methode onCreate() beschreibt, was bei dem Erstellen der Main Seite geschehen soll. Hierbei wird das Viewmodel, die Recycler und die CounterList aufgerufen.
+     * @param savedInstanceState;
+     * @ensures initConstant();
+     * @ensures initViewModel();
+     * @ensures initRecyclerView();
+     * @ensures getCounterList();
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

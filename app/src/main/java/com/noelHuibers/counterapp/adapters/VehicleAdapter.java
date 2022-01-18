@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.noelHuibers.counterapp.R;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.ItemVehicleBinding;
-import com.noelHuibers.counterapp.model.VehicleModel;
+import com.noelHuibers.counterapp.model.CountingObjectModel;
 import com.noelHuibers.counterapp.viewholders.VehicleViewHolder;
 import com.noelHuibers.counterapp.viewmodel.VehiclesViewModel;
 
@@ -21,7 +21,7 @@ import java.util.List;
 
 public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
 
-    List<VehicleModel> vehicleModelList = new ArrayList<>();
+    List<CountingObjectModel> vehicleModelList = new ArrayList<>();
     Constant constant;
     private static final String TAG = "PaymentPlanAdapter";
 
@@ -45,7 +45,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull VehicleViewHolder holder, int position) {
-        VehicleModel paymentPlanModel = vehicleModelList.get(position);
+        CountingObjectModel paymentPlanModel = vehicleModelList.get(position);
         holder.itemVehicleBinding.setVehicleModel(paymentPlanModel);
     }
 
@@ -58,7 +58,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
         }
     }
 
-    public void refreshList(List<VehicleModel> refreshUserList) {
+    public void refreshList(List<CountingObjectModel> refreshUserList) {
         this.vehicleModelList = refreshUserList;
         notifyDataSetChanged();
     }

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.noelHuibers.counterapp.Storage.StorageCounterModelService;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.model.CounterModel;
-import com.noelHuibers.counterapp.model.VehicleModel;
+import com.noelHuibers.counterapp.model.CountingObjectModel;
 import com.noelHuibers.counterapp.repository.VehiclesRepository;
 
 import java.util.List;
@@ -27,11 +27,11 @@ public class VehiclesViewModel extends ViewModel {
         vehiclesRepository = new VehiclesRepository(constant);
     }
 
-    public MutableLiveData<List<VehicleModel>> getVehicles() {
+    public MutableLiveData<List<CountingObjectModel>> getVehicles() {
         return vehiclesRepository.getVehiclesMutableLiveData();
     }
 
-    public void onItemClick(VehicleModel data) {
+    public void onItemClick(CountingObjectModel data) {
         StorageCounterModelService.addCounter(context, new CounterModel(data.getName(),false));
         constant.moveBack();
     }

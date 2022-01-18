@@ -25,7 +25,6 @@ public class SettingViewModelFactory implements ViewModelProvider.Factory {
         this.constant = constant;
         this.binding = binding;
         this.stepCount = CounterModel.stepCount;
-        binding.stepcount.setText(this.stepCount);
     }
 
     @NonNull

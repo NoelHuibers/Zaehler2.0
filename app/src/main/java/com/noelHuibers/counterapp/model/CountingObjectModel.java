@@ -1,12 +1,12 @@
 package com.noelHuibers.counterapp.model;
 
 /**
- * Die Klasse VehicleModel beschreibt die Auswahlmöglichkeiten der verschiedenen Counter.
+ * Die Klasse CountingObjectModel beschreibt die Auswahlmöglichkeiten der verschiedenen Counter.
  *
  * @author Noel Huibers
  * @version 2.0.0
  */
-public class VehicleModel {
+public class CountingObjectModel {
 
     //Class Variables
     String name;
@@ -16,7 +16,7 @@ public class VehicleModel {
      * @param name;
      * @ensures this.name = name;
      */
-    public VehicleModel(String name) {
+    public CountingObjectModel(String name) {
         this.name = name;
     }
 

@@ -11,6 +11,7 @@ import com.noelHuibers.counterapp.R;
 import com.noelHuibers.counterapp.Storage.SharedPrefManager;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.SettingActivityBinding;
+import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.viewmodel.SettingViewModel;
 import com.noelHuibers.counterapp.viewmodelfactory.SettingViewModelFactory;
 
@@ -19,6 +20,7 @@ public class SettingActivity extends AppCompatActivity {
     Constant constant;
     SettingActivityBinding binding;
     SettingViewModel settingViewModel;
+    int stepCount;
 
 
     @Override
@@ -31,6 +33,8 @@ public class SettingActivity extends AppCompatActivity {
         binding.toggleBtn.setOnCheckedChangeListener((toggleButton, isChecked) ->
                 callUpdateNightMode(isChecked)
         );
+        this.stepCount = CounterModel.stepCount;
+        setStepCountInView();
     }
 
 
@@ -62,5 +66,12 @@ public class SettingActivity extends AppCompatActivity {
         constant.moveBack();
     }
 
-
+    private void setStepCountInView(){
+        if (stepCount <= 9) {
+            binding.stepcount.setText(0 + String.valueOf(stepCount));
+        }
+        else{
+            binding.stepcount.setText(String.valueOf(stepCount));
+        }
+    }
 }

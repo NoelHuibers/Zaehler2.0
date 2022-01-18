@@ -65,7 +65,7 @@ public class CounterAdapter extends BaseAdapter {
         binding.setCounterModel(counterModel);
         CounterViewModel presenter = new CounterViewModel(parent.getContext(), constant);
         binding.setVariable(BR.counterViewModel, presenter);
-        if (counterModel.isAdd()){
+        if (counterModel.getIsAdd()){
             binding.ivAddNew.setVisibility(View.VISIBLE);
             binding.tvItem.setVisibility(View.GONE);
         }else {
