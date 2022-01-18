@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         counterAdapter = new CounterAdapter(constant, this);
-        GridView gvCars = binding.gvCars;
-        gvCars.setAdapter(counterAdapter);
+        GridView gvCounter = binding.gvCounter;
+        gvCounter.setAdapter(counterAdapter);
     }
 
     private void getCounterList() {

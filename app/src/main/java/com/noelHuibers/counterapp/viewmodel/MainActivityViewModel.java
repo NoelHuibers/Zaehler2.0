@@ -44,14 +44,16 @@ public class MainActivityViewModel extends ViewModel {
     }
 
     public void showItemClick(CounterModel data) {
+        constant.startActivityIntent(context, NumberCountActivity.class);
         //constant.startActivityIntent(context, CounterActivity.class);
-        isCarVisible.set(false);
-        isCounterVisible.set(true);
+        //isCarVisible.set(false);
+        //isCounterVisible.set(true);
     }
 
     public void showCountItemClick(CounterModel data) {
-        isCarVisible.set(true);
-        isCounterVisible.set(false);
+        constant.startActivityIntent(context, NumberCountActivity.class);
+        //isCarVisible.set(true);
+        //isCounterVisible.set(false);
         //constant.startActivityIntent(context, CounterActivity.class);
     }
 

@@ -46,7 +46,7 @@
                     android:text="@string/counter"
                     android:textColor="?attr/shark_geyser"
                     android:textSize="20sp"
-                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded,UseCompoundDrawables" />
 
 
             </LinearLayout>
@@ -155,7 +155,7 @@
         </RelativeLayout>
 
         <GridView
-            android:id="@+id/gv_cars"
+            android:id="@+id/gv_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:footerDividersEnabled="false"
@@ -164,7 +164,6 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:gravity="center_horizontal"
-            android:clickable="false"
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>

@@ -14,7 +14,7 @@ import com.noelHuibers.counterapp.R;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.ItemCounterBinding;
 import com.noelHuibers.counterapp.model.CounterModel;
-import com.noelHuibers.counterapp.viewmodel.CounterViewModel;
+import com.noelHuibers.counterapp.viewmodel.MainActivityViewModel;
 
 import java.util.List;
 
@@ -63,8 +63,8 @@ public class CounterAdapter extends BaseAdapter {
         }
         CounterModel counterModel = counterModelList.get(pos);
         binding.setCounterModel(counterModel);
-        CounterViewModel presenter = new CounterViewModel(parent.getContext(), constant);
-        binding.setVariable(BR.counterViewModel, presenter);
+        MainActivityViewModel presenter = new MainActivityViewModel(parent.getContext(), constant);
+        binding.setVariable(BR.mainActivityViewModel, presenter);
         if (counterModel.getIsAdd()){
             binding.ivAddNew.setVisibility(View.VISIBLE);
             binding.tvItem.setVisibility(View.GONE);

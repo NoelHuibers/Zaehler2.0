@@ -9,8 +9,8 @@
             type="com.noelHuibers.counterapp.model.CounterModel" />
 
         <variable
-            name="counterViewModel"
-            type="com.noelHuibers.counterapp.viewmodel.CounterViewModel" />
+            name="mainActivityViewModel"
+            type="com.noelHuibers.counterapp.viewmodel.MainActivityViewModel" />
 
 
     </data>
@@ -32,7 +32,7 @@
             android:textColor="?attr/black_white"
             android:gravity="center"
             android:text="@{String.valueOf(counterModel.number)}"
-            android:onClick="@{()->counterViewModel.showItemClick(counterModel)}"
+            android:onClick="@{()->mainActivityViewModel.showItemClick(counterModel)}"
             tools:ignore="ContentDescription"
            />
 
@@ -46,7 +46,7 @@
             android:padding="15dp"
             android:src="@drawable/ic_add"
             tools:ignore="ContentDescription"
-            android:onClick="@{()->counterViewModel.addNewClick(counterModel)}"
+            android:onClick="@{()->mainActivityViewModel.addNewClick(counterModel)}"
            />
 
 
