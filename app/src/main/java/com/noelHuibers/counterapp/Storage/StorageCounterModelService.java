@@ -46,10 +46,19 @@ public class StorageCounterModelService {
         ArrayList<CounterModel> counters = getCounter(context);
         counters.add(counter);
 
-        // Transofrmiert die ArrayList zu Json und commited dies in den lokalen Speicher.
+        // Transformiert die ArrayList zu Json und commited dies in den lokalen Speicher.
         String json = gson.toJson(counters);
         editor.putString(STORAGE_COUNTER_MODEL_SERVICE, json);
-        editor.commit();
+        editor.apply();
+    }
+
+    public static void update(Context context, ArrayList<CounterModel> counterModels){
+        clearCounter(context);
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(counterModels);
+        editor.putString(STORAGE_COUNTER_MODEL_SERVICE, json);
+        editor.apply();
     }
 
     /**
@@ -75,7 +84,7 @@ public class StorageCounterModelService {
         }
         String json = gson.toJson(counters);
         editor.putString(STORAGE_COUNTER_MODEL_SERVICE, json);
-        editor.commit();
+        editor.apply();
     }
     
     /**
@@ -85,7 +94,7 @@ public class StorageCounterModelService {
      * @return ArrayList<CounterModel> counters;
      */
     public static ArrayList<CounterModel> getCounter(Context context) {
-        ArrayList<CounterModel> counters = new ArrayList<CounterModel>();
+        ArrayList<CounterModel> counters = new ArrayList<>();
 
         //Bekommt den Json String aus dem speicher.
         String json = getSharedPreferences(context).getString(STORAGE_COUNTER_MODEL_SERVICE, "");
@@ -110,6 +119,6 @@ public class StorageCounterModelService {
     public static void clearCounter (Context context) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.remove(STORAGE_COUNTER_MODEL_SERVICE);
-        editor.commit();
+        editor.apply();
     }
 }

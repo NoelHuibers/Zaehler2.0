@@ -73,8 +73,8 @@ public class CounterModel {
      * @requires number!=0;
      * @ensures this.stepCount=number;
      */
-    public void setStepCount(int number) {
-        this.stepCount=number;
+    public static void setStepCount(int number) {
+        stepCount=number;
     }
 
     /**
@@ -96,13 +96,14 @@ public class CounterModel {
 
     /**
      * Diese Funktion ist zum Laden des Bildes des ausgewählten Zählerobjektes.
-     * @param imageView, imgId;
+     * @param imageView;
+     * @param imgId;
      * @ensures imageView.setImageResource(imgId);
      */
     @BindingAdapter({ "imgId" })
     public static void loadImage(ImageView imageView, int imgId) {
         imageView.setImageResource(imgId);
-       /* Glide.with(imageView.getContext())
+        /* Glide.with(imageView.getContext())
                 .setDefaultRequestOptions(new RequestOptions()
                         .circleCrop())
                 .load(imageURL)
@@ -137,7 +138,7 @@ public class CounterModel {
 
     /**
      * Diese Funktion ist die setter Methode der Image Id.
-     * @param imgId
+     * @param imgId;
      * @ensures this.imgId = imgId;
      */
     public void setImgId(int imgId) {

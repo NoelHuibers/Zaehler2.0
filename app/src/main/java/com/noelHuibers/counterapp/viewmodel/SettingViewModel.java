@@ -16,20 +16,16 @@ public class SettingViewModel extends ViewModel {
     Context context;
     Constant constant;
     SettingActivityBinding binding;
-    int stepCount;
-
+    int stepCount = CounterModel.stepCount;
 
     public SettingViewModel(Context context, Constant constant, SettingActivityBinding binding) {
         this.context = context;
         this.constant = constant;
         this.binding = binding;
-        this.stepCount = CounterModel.stepCount;
     }
 
     public void onBackClick() {
         constant.moveBack();
-        int value = Integer.parseInt(binding.stepcount.getText().toString());
-        CounterModel.stepCount = value;
+        CounterModel.setStepCount(Integer.parseInt(binding.stepcount.getText().toString()));
     }
-
 }

@@ -18,7 +18,7 @@ public class SharedPrefManager {
 
     /**
      * Diese ist der Konstruktor der Klasse SharedPrefManager. Diese Funktion wird beim erstellen des Objekts ausgeführt und setzt die Contextvariable des Nutzers.
-     * @param name;
+     * @param mCtx;
      * @ensures this.name = name;
      */
     private SharedPrefManager(Context mCtx) {

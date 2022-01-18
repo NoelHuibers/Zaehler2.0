@@ -17,14 +17,12 @@ public class SettingViewModelFactory implements ViewModelProvider.Factory {
     private final Context context;
     private final Constant constant;
     private final SettingActivityBinding binding;
-    private final int stepCount;
 
 
     public SettingViewModelFactory(Context context, Constant constant, SettingActivityBinding binding) {
         this.context = context;
         this.constant = constant;
         this.binding = binding;
-        this.stepCount = CounterModel.stepCount;
     }
 
     @NonNull

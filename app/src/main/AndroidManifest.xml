@@ -11,7 +11,7 @@
         android:theme="@style/Theme.CounterApp">
         <activity android:name="com.noelHuibers.counterapp.activities.SettingActivity"></activity>
         <activity android:name="com.noelHuibers.counterapp.activities.NumberCountActivity" />
-        <activity android:name="com.noelHuibers.counterapp.activities.VehiclesActivity" />
+        <activity android:name="com.noelHuibers.counterapp.activities.CountingObjectActivity" />
         <activity
             android:name="com.noelHuibers.counterapp.activities.MainActivity"
             android:exported="true">

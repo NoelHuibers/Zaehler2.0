@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.noelHuibers.counterapp.activities.NumberCountActivity;
 import com.noelHuibers.counterapp.activities.SettingActivity;
-import com.noelHuibers.counterapp.activities.VehiclesActivity;
+import com.noelHuibers.counterapp.activities.CountingObjectActivity;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.repository.CounterRepository;
@@ -40,12 +40,11 @@ public class MainActivityViewModel extends ViewModel {
     }
 
     public void addNewClick(CounterModel data) {
-        constant.startActivityIntent(context, VehiclesActivity.class);
+        constant.startActivityIntent(context, CountingObjectActivity.class);
     }
 
     public void showItemClick(CounterModel data) {
         constant.startActivityIntent(context, NumberCountActivity.class);
-        //constant.startActivityIntent(context, CounterActivity.class);
         //isCarVisible.set(false);
         //isCounterVisible.set(true);
     }
@@ -54,7 +53,6 @@ public class MainActivityViewModel extends ViewModel {
         constant.startActivityIntent(context, NumberCountActivity.class);
         //isCarVisible.set(true);
         //isCounterVisible.set(false);
-        //constant.startActivityIntent(context, CounterActivity.class);
     }
 
     public boolean onLongClick(View view,CounterModel counterModel) {

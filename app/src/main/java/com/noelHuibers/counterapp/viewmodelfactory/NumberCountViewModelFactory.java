@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.NumberCountActivityBinding;
-import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.viewmodel.NumberCountViewModel;
 
 

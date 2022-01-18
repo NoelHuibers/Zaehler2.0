@@ -8,13 +8,13 @@ import com.noelHuibers.counterapp.model.CountingObjectModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehiclesRepository {
+public class CountingObjectRepository {
 
     List<CountingObjectModel> vehicleList = new ArrayList<>();
     MutableLiveData<List<CountingObjectModel>> vehicleListMutableLiveDate = new MutableLiveData<>();
     Constant constant;
 
-    public VehiclesRepository(Constant constant) {
+    public CountingObjectRepository(Constant constant) {
         this.constant = constant;
     }
 

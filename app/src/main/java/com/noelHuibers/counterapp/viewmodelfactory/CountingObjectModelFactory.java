@@ -7,16 +7,16 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.noelHuibers.counterapp.common.Constant;
-import com.noelHuibers.counterapp.viewmodel.VehiclesViewModel;
+import com.noelHuibers.counterapp.viewmodel.CountingObjectViewModel;
 
 
-public class VehicleViewModelFactory implements ViewModelProvider.Factory {
+public class CountingObjectModelFactory implements ViewModelProvider.Factory {
 
     private final Context context;
     private final Constant constant;
 
 
-    public VehicleViewModelFactory(Context context, Constant constant) {
+    public CountingObjectModelFactory(Context context, Constant constant) {
         this.context = context;
         this.constant = constant;
     }
@@ -24,6 +24,6 @@ public class VehicleViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new VehiclesViewModel(context, constant);
+        return (T) new CountingObjectViewModel(context, constant);
     }
 }

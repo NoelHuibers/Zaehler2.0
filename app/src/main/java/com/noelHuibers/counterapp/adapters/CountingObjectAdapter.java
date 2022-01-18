@@ -1,5 +1,6 @@
 package com.noelHuibers.counterapp.adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -13,19 +14,19 @@ import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.ItemVehicleBinding;
 import com.noelHuibers.counterapp.model.CountingObjectModel;
 import com.noelHuibers.counterapp.viewholders.VehicleViewHolder;
-import com.noelHuibers.counterapp.viewmodel.VehiclesViewModel;
+import com.noelHuibers.counterapp.viewmodel.CountingObjectViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
+public class CountingObjectAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
 
     List<CountingObjectModel> vehicleModelList = new ArrayList<>();
     Constant constant;
     private static final String TAG = "PaymentPlanAdapter";
 
-    public VehicleAdapter(Constant constant) {
+    public CountingObjectAdapter(Constant constant) {
         this.constant = constant;
     }
 
@@ -38,8 +39,8 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
                 parent,
                 false);
 
-        VehiclesViewModel presenter = new VehiclesViewModel(parent.getContext(), constant);
-        itemVehicleBinding.setVariable(BR.vehiclesViewModel, presenter);
+        CountingObjectViewModel presenter = new CountingObjectViewModel(parent.getContext(), constant);
+        itemVehicleBinding.setVariable(BR.countingObjectViewModel, presenter);
         return new VehicleViewHolder(itemVehicleBinding);
     }
 
@@ -58,6 +59,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void refreshList(List<CountingObjectModel> refreshUserList) {
         this.vehicleModelList = refreshUserList;
         notifyDataSetChanged();

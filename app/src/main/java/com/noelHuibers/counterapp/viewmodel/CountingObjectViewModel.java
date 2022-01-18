@@ -10,25 +10,25 @@ import com.noelHuibers.counterapp.Storage.StorageCounterModelService;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.model.CountingObjectModel;
-import com.noelHuibers.counterapp.repository.VehiclesRepository;
+import com.noelHuibers.counterapp.repository.CountingObjectRepository;
 
 import java.util.List;
 
-public class VehiclesViewModel extends ViewModel {
+public class CountingObjectViewModel extends ViewModel {
 
     @SuppressLint("StaticFieldLeak")
     Context context;
     Constant constant;
-    private final VehiclesRepository vehiclesRepository;
+    private final CountingObjectRepository countingObjectRepository;
 
-    public VehiclesViewModel(Context context, Constant constant) {
+    public CountingObjectViewModel(Context context, Constant constant) {
         this.context = context;
         this.constant = constant;
-        vehiclesRepository = new VehiclesRepository(constant);
+        countingObjectRepository = new CountingObjectRepository(constant);
     }
 
     public MutableLiveData<List<CountingObjectModel>> getVehicles() {
-        return vehiclesRepository.getVehiclesMutableLiveData();
+        return countingObjectRepository.getVehiclesMutableLiveData();
     }
 
     public void onItemClick(CountingObjectModel data) {

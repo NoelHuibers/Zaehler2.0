@@ -137,8 +137,7 @@ public class Constant {
 
     private void setToastLayout(String message, int toastLayout) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View layout = inflater.inflate(toastLayout,
-                ((Activity) context).findViewById(R.id.toast_layout_root));
+        View layout = inflater.inflate(toastLayout, ((Activity) context).findViewById(R.id.toast_layout_root));
         TextView text = layout.findViewById(R.id.text);
         text.setText(message);
         toast = new Toast(context.getApplicationContext());

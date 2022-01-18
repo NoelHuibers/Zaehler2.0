@@ -10,8 +10,8 @@
             type="com.noelHuibers.counterapp.model.CountingObjectModel" />
 
         <variable
-            name="vehiclesViewModel"
-            type="com.noelHuibers.counterapp.viewmodel.VehiclesViewModel" />
+            name="countingObjectViewModel"
+            type="com.noelHuibers.counterapp.viewmodel.CountingObjectViewModel" />
 
 
     </data>
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:onClick="@{()->vehiclesViewModel.onItemClick(vehicleModel)}">
+        android:onClick="@{()->countingObjectViewModel.onItemClick(vehicleModel)}">
 
 
         <TextView

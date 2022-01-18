@@ -7,7 +7,7 @@
 
         <variable
             name="vehicleViewModel"
-            type="com.noelHuibers.counterapp.viewmodel.VehiclesViewModel" />
+            type="com.noelHuibers.counterapp.viewmodel.CountingObjectViewModel" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="?attr/white_black"
-        tools:context=".activities.VehiclesActivity">
+        tools:context=".activities.CountingObjectActivity">
 
         <LinearLayout
             android:layout_width="match_parent"

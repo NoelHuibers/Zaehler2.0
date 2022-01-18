@@ -19,12 +19,13 @@ public class NumberCountViewModel extends ViewModel {
     Constant constant;
     NumberCountActivityBinding binding;
     CounterModel counter;
+    ArrayList<CounterModel> counterModels;
 
     public NumberCountViewModel(Context context, Constant constant, NumberCountActivityBinding binding) {
         this.context = context;
         this.constant = constant;
         this.binding = binding;
-        ArrayList<CounterModel> counterModels = StorageCounterModelService.getCounter(context);
+        counterModels = StorageCounterModelService.getCounter(context);
         this.counter = counterModels.get(0);
         int value = counter.getNumber();
         binding.tvCount.setText(String.valueOf(value));
@@ -44,6 +45,7 @@ public class NumberCountViewModel extends ViewModel {
 
     public void  backClick() {
         constant.moveBack();
+        StorageCounterModelService.update(context, counterModels);
     }
 
 }

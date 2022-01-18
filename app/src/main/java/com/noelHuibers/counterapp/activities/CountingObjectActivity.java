@@ -10,17 +10,17 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.noelHuibers.counterapp.R;
-import com.noelHuibers.counterapp.adapters.VehicleAdapter;
+import com.noelHuibers.counterapp.adapters.CountingObjectAdapter;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.VehicleActivityBinding;
-import com.noelHuibers.counterapp.viewmodel.VehiclesViewModel;
-import com.noelHuibers.counterapp.viewmodelfactory.VehicleViewModelFactory;
+import com.noelHuibers.counterapp.viewmodel.CountingObjectViewModel;
+import com.noelHuibers.counterapp.viewmodelfactory.CountingObjectModelFactory;
 
-public class VehiclesActivity extends AppCompatActivity {
+public class CountingObjectActivity extends AppCompatActivity {
 
     VehicleActivityBinding binding;
-    VehiclesViewModel vehiclesViewModel;
-    VehicleAdapter vehicleAdapter;
+    CountingObjectViewModel countingObjectViewModel;
+    CountingObjectAdapter countingObjectAdapter;
     Constant constant;
     private static final String TAG = "VehiclesActivity";
 
@@ -41,21 +41,21 @@ public class VehiclesActivity extends AppCompatActivity {
     }
 
     private void initUserViewModel() {
-        vehiclesViewModel = new ViewModelProvider(this, new VehicleViewModelFactory(getApplication(), constant)).get(VehiclesViewModel.class);
-        binding.setVehicleViewModel(vehiclesViewModel);
+        countingObjectViewModel = new ViewModelProvider(this, new CountingObjectModelFactory(getApplication(), constant)).get(CountingObjectViewModel.class);
+        binding.setVehicleViewModel(countingObjectViewModel);
     }
 
     private void initRecyclerView() {
-        vehicleAdapter = new VehicleAdapter(constant);
+        countingObjectAdapter = new CountingObjectAdapter(constant);
         RecyclerView rvUser = binding.rvVehicles;
         rvUser.setLayoutManager(new LinearLayoutManager(this));
-        rvUser.setAdapter(vehicleAdapter);
+        rvUser.setAdapter(countingObjectAdapter);
     }
 
     private void getVehicle() {
-        vehiclesViewModel.getVehicles().observe(this, results -> {
+        countingObjectViewModel.getVehicles().observe(this, results -> {
             if (results != null) {
-                vehicleAdapter.refreshList(results);
+                countingObjectAdapter.refreshList(results);
                 Log.i(TAG, "initUserViewModel: User list obtain " + results.size());
             }
         });
