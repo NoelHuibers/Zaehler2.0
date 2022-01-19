@@ -19,6 +19,15 @@ public class CounterModel {
     boolean isAdd;
     String name;
     int imgId;
+    int position;
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
     /**
      * Diese ist der Konstruktor der Klasse Zähler. Diese Funktion wird beim erstellen des Objekts ausgeführt und setzt den Namen des Objekts, welches gezählt wird.

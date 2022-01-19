@@ -5,6 +5,7 @@ import android.content.Context;
 
 import androidx.lifecycle.ViewModel;
 
+import com.noelHuibers.counterapp.Storage.StoragePositionService;
 import com.noelHuibers.counterapp.Storage.StorageCounterModelService;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.NumberCountActivityBinding;
@@ -20,13 +21,15 @@ public class NumberCountViewModel extends ViewModel {
     NumberCountActivityBinding binding;
     CounterModel counter;
     ArrayList<CounterModel> counterModels;
+    int position;
 
     public NumberCountViewModel(Context context, Constant constant, NumberCountActivityBinding binding) {
         this.context = context;
         this.constant = constant;
         this.binding = binding;
         counterModels = StorageCounterModelService.getCounter(context);
-        this.counter = counterModels.get(0);
+        this.position = StoragePositionService.getPosition(context).get(0);
+        this.counter = counterModels.get(position);
         int value = counter.getNumber();
         binding.tvCount.setText(String.valueOf(value));
     }

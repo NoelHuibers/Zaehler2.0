@@ -32,7 +32,10 @@ public class CountingObjectViewModel extends ViewModel {
     }
 
     public void onItemClick(CountingObjectModel data) {
-        StorageCounterModelService.addCounter(context, new CounterModel(data.getName(),false));
+        int position = StorageCounterModelService.getCounter(context).size();
+        CounterModel counter = new CounterModel(data.getName(),false);
+        counter.setPosition(position);
+        StorageCounterModelService.addCounter(context, counter);
         constant.moveBack();
     }
 

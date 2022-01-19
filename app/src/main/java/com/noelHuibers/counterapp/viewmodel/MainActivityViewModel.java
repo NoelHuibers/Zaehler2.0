@@ -8,6 +8,7 @@ import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.noelHuibers.counterapp.Storage.StoragePositionService;
 import com.noelHuibers.counterapp.activities.NumberCountActivity;
 import com.noelHuibers.counterapp.activities.SettingActivity;
 import com.noelHuibers.counterapp.activities.CountingObjectActivity;
@@ -44,15 +45,20 @@ public class MainActivityViewModel extends ViewModel {
     }
 
     public void showItemClick(CounterModel data) {
+        int position = data.getPosition();
+        StoragePositionService.clearPosition(context);
+        StoragePositionService.addPosition(context, position);
         constant.startActivityIntent(context, NumberCountActivity.class);
+        //constant.startActivityIntent(context, NumberCountActivity.class);
         //isCarVisible.set(false);
         //isCounterVisible.set(true);
     }
 
     public void showCountItemClick(CounterModel data) {
+        int position = data.getPosition();
+        StoragePositionService.clearPosition(context);
+        StoragePositionService.addPosition(context, position);
         constant.startActivityIntent(context, NumberCountActivity.class);
-        //isCarVisible.set(true);
-        //isCounterVisible.set(false);
     }
 
     public boolean onLongClick(View view,CounterModel counterModel) {

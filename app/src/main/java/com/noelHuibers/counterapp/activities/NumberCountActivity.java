@@ -1,5 +1,6 @@
 package com.noelHuibers.counterapp.activities;
 
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,13 +13,14 @@ import com.noelHuibers.counterapp.databinding.NumberCountActivityBinding;
 import com.noelHuibers.counterapp.viewmodel.NumberCountViewModel;
 import com.noelHuibers.counterapp.viewmodelfactory.NumberCountViewModelFactory;
 
+import static android.content.Intent.getIntent;
+
 public class NumberCountActivity extends AppCompatActivity {
 
     Constant constant;
     NumberCountActivityBinding binding;
     NumberCountViewModel numberCountViewModel;
-
-
+    public int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
