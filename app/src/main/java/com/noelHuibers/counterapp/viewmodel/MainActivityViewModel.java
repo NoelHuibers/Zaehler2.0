@@ -2,8 +2,8 @@ package com.noelHuibers.counterapp.viewmodel;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.View;
 
+import android.view.View;
 import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -90,11 +90,11 @@ public class MainActivityViewModel extends ViewModel {
     }
 
     //Quellcode für ein Update, funktioniert bereits, jedoch wird die imgId noch nicht weiter gegeben. Schnell in Version 2.1 umsetzbar. XML Datei dafür ist item_cars.
-    /*
-    public boolean onLongClick(View view,CounterModel counterModel) {
-         isCarVisible.set(false);
-         isCounterVisible.set(true);
-    }*/
+    public boolean onLongClick(View view, CounterModel counterModel) {
+        isCarVisible.set(false);
+        isCounterVisible.set(true);
+        return false;
+    }
 
     /**
      * Die Methode settingClick() ruft die Seite Settings auf.

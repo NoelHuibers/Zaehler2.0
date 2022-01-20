@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.SettingActivityBinding;
-import com.noelHuibers.counterapp.model.CounterModel;
 import com.noelHuibers.counterapp.viewmodel.SettingViewModel;
 
 /**

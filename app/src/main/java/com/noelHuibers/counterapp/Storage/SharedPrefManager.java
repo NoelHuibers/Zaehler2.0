@@ -1,5 +1,6 @@
 package com.noelHuibers.counterapp.Storage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -13,7 +14,9 @@ public class SharedPrefManager {
 
     //Class Variables
     private static final String SHARED_PREF_NAME = "my_shared_preff";
+    @SuppressLint("StaticFieldLeak")
     public static SharedPrefManager mInstance;
+    @SuppressLint("StaticFieldLeak")
     private static Context mCtx;
 
     /**
@@ -22,7 +25,7 @@ public class SharedPrefManager {
      * @ensures this.name = name;
      */
     private SharedPrefManager(Context mCtx) {
-        this.mCtx = mCtx;
+        SharedPrefManager.mCtx = mCtx;
     }
 
     /**
@@ -61,7 +64,7 @@ public class SharedPrefManager {
     
    /**
     * Diese Methode speichert den Startmodus der App zu jeweils Dark- oder Whitemode je nach Präferenz in den Nutzereinstellungen.
-    * @param darkMode
+    * @param darkMode;
     * @ensures SharedPrefrences.editor.putBoolean("Mode", darkmode)
     * @ensures SharedPrefrences.editor.apply()
     */
