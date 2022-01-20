@@ -13,8 +13,15 @@ import com.noelHuibers.counterapp.model.CounterModel;
 
 import java.util.ArrayList;
 
+/**
+ * Die Klasse NumberCountViewModel beschreibt das Viewmodel der NumberCount Seite.
+ *
+ * @author Noel Huibers
+ * @version 2.0.0
+ */
 public class NumberCountViewModel extends ViewModel {
 
+    //Class Variables
     @SuppressLint("StaticFieldLeak")
     Context context;
     Constant constant;
@@ -25,6 +32,13 @@ public class NumberCountViewModel extends ViewModel {
     String name;
     int imgId;
 
+    /**
+     * Der Konstrutkor der Klasse initalisiert den angezeigten Counter.
+     * @param binding;
+     * @param constant;
+     * @param context;
+     * @ensures binding.tvCount.setText(String.valueOf(value));
+     */
     public NumberCountViewModel(Context context, Constant constant, NumberCountActivityBinding binding) {
         this.context = context;
         this.constant = constant;
@@ -38,33 +52,60 @@ public class NumberCountViewModel extends ViewModel {
         binding.tvCount.setText(String.valueOf(value));
     }
 
-    public void  addClick() {
+    /**
+     * Addiert den stepcount auf den Counter auf.
+     * @ensures counter.countUp();
+     */
+    public void addClick() {
         counter.countUp();
         int value = counter.getNumber();
         binding.tvCount.setText(String.valueOf(value));
     }
 
-    public void  subClick() {
+    /**
+     * Subtrahiert den stepcount von dem Counter.
+     * @ensures counter.countDown();
+     */
+    public void subClick() {
         counter.countDown();
         int value = counter.getNumber();
         binding.tvCount.setText(String.valueOf(value));
     }
 
-    public void  backClick() {
+    /**
+     * Die Methode onBackClicked lässt den Nutzer zur Main Seite zurück kommen und speichert die Änderungen am Counter.
+     * @ensures constant.moveBack()
+     * @ensures StorageCounterModelService.update(context, counterModels);
+     */
+    public void backClick() {
         constant.moveBack();
         StorageCounterModelService.update(context, counterModels);
     }
 
+    /**
+     * Die Methode removeCounter() entfernt den derzeitig sichtbaren Counter und führt zurück zur Hauptseite.
+     * @ensures constant.moveBack();
+     * @ensures counterModels.remove(position);
+     * @ensures StorageCounterModelService.update(context,counterModels);
+     */
     public void removeCounter() {
         constant.moveBack();
         counterModels.remove(position);
         StorageCounterModelService.update(context,counterModels);
     }
 
+    /**
+     * Gibt den Namen des Counters zurück für die XML Datei.
+     * @return name;
+     */
     public String getName(){
         return name;
     }
 
+    /**
+     * Gibt die ImageId des Counters zurück für die XML Datei.
+     * @return imgId;
+     */
     public int getImgId() { return imgId; }
 
 }

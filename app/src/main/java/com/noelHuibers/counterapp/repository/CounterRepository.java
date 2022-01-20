@@ -33,7 +33,7 @@ public class CounterRepository {
     }
 
     /**
-     * Die Methode getCountersMutableLiveData() erstellt die counterModelList. Sie added den Addbutton, welcher immer in der App zusehen ist und gibt die counterModelList als MutableLiveData zurück.
+     * Die Methode getCountersMutableLiveData() erstellt die CounterModelList. Sie added den Addbutton, welcher immer in der App zusehen ist und gibt die counterModelList als MutableLiveData zurück.
      * @param context;
      * @return counterListMutableLiveData;
      */
