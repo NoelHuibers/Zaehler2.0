@@ -12,7 +12,7 @@ import com.noelHuibers.counterapp.R;
  */
 public class CounterModel {
 
-    //Class variables
+    //Class Variables
     public int number = 0;
     public static int stepCount = 1;
     boolean isAdd;
