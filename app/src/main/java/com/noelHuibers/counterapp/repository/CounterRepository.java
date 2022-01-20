@@ -28,5 +28,4 @@ public class CounterRepository {
         counterListMutableLiveDate.postValue(counterModelList);
         return counterListMutableLiveDate;
     }
-
 }

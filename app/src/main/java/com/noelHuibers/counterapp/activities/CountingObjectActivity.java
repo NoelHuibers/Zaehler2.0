@@ -43,12 +43,13 @@ public class CountingObjectActivity extends AppCompatActivity {
         initConstant();
         initRecyclerView();
         initUserViewModel();
-        getVehicle();
+        getCountingObjects();
     }
 
     /**
-     * Die Methode initConstat() dient zur initalisierung der Constanten, also der Statusbar und des Context.
-     * @ensures constantIsInit();
+     * Die Methode initConstant() initalisiert die Konstanen. Diese setzt den Kontext und die Statusbar. Also werden für die Komponenten initalisiert ob diese im Dark/Whitemode angezeigt werden sollen und in welcher Sprache.
+     * @ensures constant.setContext(Constant.getConstant(constant));
+     * @ensures constant.setStatusBar(Constant.getConstant(constant));
      */
     private void initConstant() {
         constant = Constant.getConstant(constant);
@@ -57,17 +58,22 @@ public class CountingObjectActivity extends AppCompatActivity {
     }
 
     /**
-     * Die Methode initUserViewModel() dient zur initalisierung des Viewmodels.
-     * @ensures viewmodelIsInit();
+     * Die Methode initUserViewModel erstellt das Objekt countingObjectViewModel indem die ViewModelFactory ausgeführt wird. Hierbei wird das Binding zwischen der XML und der Java Klasse gesetzt.
+     * @ensures binding.setLifecycleOwner(this);
+     * @ensures binding.setVehicleViewModel(countingObjectViewModel);
      */
     private void initUserViewModel() {
         countingObjectViewModel = new ViewModelProvider(this, new CountingObjectModelFactory(getApplication(), constant)).get(CountingObjectViewModel.class);
+        //Setzt diese Klasse CountingObjectActivity als Android Lifecycleowner.
+        binding.setLifecycleOwner(this);
+        //Setzt countingObjectViewModel als ViewModel.
         binding.setVehicleViewModel(countingObjectViewModel);
     }
-    
+
     /**
-     * Die Methode initRecyclerView() dient zur initalisierung der Recyclerview.
-     * @ensures  recyclerview.setAdapter(countingObjectAdapter);
+     * Die Methode initRecyclerView() initalisiert die Recyclerview. Hierbei wird der countingObjectAdapter erstellt um die Recyclerview mit der Anzahl der CountingObjects zu verknüpfen.
+     * @ensures rvUser.setLayoutManager(new LinearLayoutManager(this));
+     * @ensures rvUser.setAdapter(countingObjectAdapter);
      */
     private void initRecyclerView() {
         countingObjectAdapter = new CountingObjectAdapter(constant);
@@ -77,10 +83,10 @@ public class CountingObjectActivity extends AppCompatActivity {
     }
 
     /**
-     * Die Methode getVehicle() dient zum observen der countingObjects.
+     * Die Methode getCountingObjects() dient zum observen der countingObjects.
      * @ensures countingObjectViewModel.getVehicles().observe;
      */
-    private void getVehicle() {
+    private void getCountingObjects() {
         countingObjectViewModel.getVehicles().observe(this, results -> {
             if (results != null) {
                 countingObjectAdapter.refreshList(results);

@@ -13,7 +13,6 @@ import com.noelHuibers.counterapp.R;
 public class CounterModel {
 
     //Class variables
-    static int id;
     public int number = 0;
     public static int stepCount = 1;
     boolean isAdd;
@@ -21,23 +20,17 @@ public class CounterModel {
     int imgId;
     int position;
 
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
     /**
      * Diese ist der Konstruktor der Klasse Zähler. Diese Funktion wird beim erstellen des Objekts ausgeführt und setzt den Namen des Objekts, welches gezählt wird.
      * @param name;
-     * @ensures this.name = name;
+     * @param isAdd;
+     * @ensures setAdd(isAdd);
+     * @ensures setName(name);
+     * @ensures findImgId(name);
      */
     public CounterModel(String name, boolean isAdd){
-        this.isAdd = isAdd;
-        this.name = name;
-        id++;
+        setAdd(isAdd);
+        setName(name);
         findImgId(name);
     }
 
@@ -112,12 +105,6 @@ public class CounterModel {
     @BindingAdapter({ "imgId" })
     public static void loadImage(ImageView imageView, int imgId) {
         imageView.setImageResource(imgId);
-        /* Glide.with(imageView.getContext())
-                .setDefaultRequestOptions(new RequestOptions()
-                        .circleCrop())
-                .load(imageURL)
-                .placeholder(R.drawable.loading)
-                .into(imageView);*/
     }
     
     /**
@@ -154,18 +141,48 @@ public class CounterModel {
         this.imgId = imgId;
     }
 
-    public void setName(String name){
-        this.name = name;
+    /**
+     * Diese Funktion ist die getter Methode der Variable position.
+     * @return position;
+     */
+    public int getPosition() {
+        return position;
     }
 
+    /**
+     * Diese Funktion ist die setter Methode der Variable position.
+     * @param position;
+     * @ensures this.position = position;
+     */
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    /**
+     * Diese Funktion ist die getter Methode der Variable name.
+     * @return name;
+     */
     public String getName(){
         return name;
     }
 
+    /**
+     * Diese Funktion ist die setter Methode der Variable name.
+     * @param name;
+     * @ensures this.name = name;
+     */
+    public void setName(String name){
+        this.name = name;
+    }
+
+    /**
+     * Diese Funktion findet die ImgId über einen Caseswitch heraus und setzt diese.
+     * @param name;
+     * @ensures this.imgId = R.drawable.ic_name;
+     */
     public void findImgId(String name){
-        String images = name;
         int id;
-        switch (images) {
+        switch (name) {
             case "Car":  this.imgId = R.drawable.ic_cars;
                 break;
             case "Bus":  this.imgId = R.drawable.ic_bus;

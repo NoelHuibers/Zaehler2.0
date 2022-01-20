@@ -23,7 +23,6 @@ public class StorageCounterModelService {
 
     /**
      * Getter Methode um den SharedPrefrences Ordner zu bekommen.
-     *
      * @param context;
      * @return SharedPrefrences;
      */
@@ -31,9 +30,9 @@ public class StorageCounterModelService {
         return PreferenceManager.getDefaultSharedPreferences(context);
 
     }
+
     /**
      * Added einen Counter als Json Objekt zu den lokal gespeicherten Countern.
-     *
      * @param context;
      * @param counter;
      * @ensures counter.added();
@@ -41,19 +40,25 @@ public class StorageCounterModelService {
     public static void addCounter(Context context, CounterModel counter) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         Gson gson = new Gson();
-
-        // Bekommt die lokal gespeicherten Counter als ArrayList und added den Counter.
+        //Bekommt die lokal gespeicherten Counter als ArrayList und added den Counter.
         ArrayList<CounterModel> counters = getCounter(context);
         counters.add(counter);
-
-        // Transformiert die ArrayList zu Json und commited dies in den lokalen Speicher.
+        //Transformiert die ArrayList zu Json und commited dies in den lokalen Speicher.
         String json = gson.toJson(counters);
         editor.putString(STORAGE_COUNTER_MODEL_SERVICE, json);
         editor.apply();
     }
 
+    /**
+     * Updatet die Json im Speicher, indem die alte Json gelöscht und eine neue JSON mit den neuen counterModels gespeichert wird.
+     * @param context;
+     * @param counterModels;
+     * @ensures editor.putString(STORAGE_COUNTER_MODEL_SERVICE, gson.toJson(counterModels));
+     */
     public static void update(Context context, ArrayList<CounterModel> counterModels){
+        //Entfernt die bestehenden Counter.
         clearCounter(context);
+        //Speichert die neuen counterModels als JSON in den speicher
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         Gson gson = new Gson();
         String json = gson.toJson(counterModels);
@@ -63,7 +68,6 @@ public class StorageCounterModelService {
 
     /**
      * Entfernt einen Counter aus dem lokalen Speicher.
-     *
      * @param context;
      * @param counter;
      * @ensures counter.removed();
@@ -72,11 +76,9 @@ public class StorageCounterModelService {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         Gson gson = new Gson();
         ArrayList<CounterModel> counters = getCounter(context);
-
         //Checkt ob die lokal gespeicherte ArrayList leer ist.
         if (counters != null && !counters.isEmpty()) {
             for (CounterModel c : counters) {
-
                 //Entfernt den Counter von der Arraylist und bricht die Iterierung ab.
                 counters.remove(counter);
                 break;
@@ -89,17 +91,14 @@ public class StorageCounterModelService {
     
     /**
      * Bekommt die Counter als ArrayList ausgegeben.
-     *
      * @param context;
      * @return ArrayList<CounterModel> counters;
      */
     public static ArrayList<CounterModel> getCounter(Context context) {
         ArrayList<CounterModel> counters = new ArrayList<>();
-
         //Bekommt den Json String aus dem speicher.
         String json = getSharedPreferences(context).getString(STORAGE_COUNTER_MODEL_SERVICE, "");
         Gson gson = new Gson();
-
         //Macht den String der Json Datei zu einer ArrayList und returned diesen.
         TypeToken<ArrayList<CounterModel>> token = new TypeToken<ArrayList<CounterModel>>() {
         };
@@ -112,7 +111,6 @@ public class StorageCounterModelService {
     
     /**
      * Entfernt die Counter aus dem lokalen Speicher.
-     *
      * @param context;
      * @ensures removeAllCounter();
      */

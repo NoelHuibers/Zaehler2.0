@@ -26,7 +26,6 @@ public class CounterAdapter extends BaseAdapter {
     List<CounterModel> counterModelList;
     ItemCounterBinding binding;
 
-
     public CounterAdapter(Constant constant, Context context) {
         this.constant = constant;
         this.context = context;
@@ -72,9 +71,7 @@ public class CounterAdapter extends BaseAdapter {
             binding.ivAddNew.setVisibility(View.GONE);
             binding.tvItem.setVisibility(View.VISIBLE);
         }
-
         return binding.getRoot();
-
     }
 
     @Override
