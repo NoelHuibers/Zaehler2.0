@@ -5,6 +5,8 @@ import android.content.Context;
 
 import androidx.lifecycle.ViewModel;
 
+import com.noelHuibers.counterapp.Storage.StorageCounterModelService;
+import com.noelHuibers.counterapp.Storage.StoragePositionService;
 import com.noelHuibers.counterapp.common.Constant;
 import com.noelHuibers.counterapp.databinding.SettingActivityBinding;
 import com.noelHuibers.counterapp.model.CounterModel;
@@ -27,5 +29,10 @@ public class SettingViewModel extends ViewModel {
     public void onBackClick() {
         constant.moveBack();
         CounterModel.setStepCount(Integer.parseInt(binding.stepcount.getText().toString()));
+    }
+
+    public void deleteAll() {
+        StorageCounterModelService.clearCounter(context);
+        StoragePositionService.clearPosition(context);
     }
 }

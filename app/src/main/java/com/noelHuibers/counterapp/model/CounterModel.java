@@ -36,9 +36,9 @@ public class CounterModel {
      */
     public CounterModel(String name, boolean isAdd){
         this.isAdd = isAdd;
-        this.imgId = R.drawable.ic_cars;
         this.name = name;
         id++;
+        findImgId(name);
     }
 
     /**
@@ -152,5 +152,26 @@ public class CounterModel {
      */
     public void setImgId(int imgId) {
         this.imgId = imgId;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void findImgId(String name){
+        String images = name;
+        int id;
+        switch (images) {
+            case "Car":  this.imgId = R.drawable.ic_cars;
+                break;
+            case "Bus":  this.imgId = R.drawable.ic_bus;
+                break;
+            default: this.imgId = R.drawable.ic_add;
+                break;
+        }
     }
 }

@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="@string/counter"
+                    android:text="@string/count_it"
                     android:textColor="?attr/shark_geyser"
                     android:textSize="20sp"
                     tools:ignore="ObsoleteLayoutParam,RtlHardcoded,UseCompoundDrawables" />

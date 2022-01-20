@@ -245,46 +245,114 @@
                     tools:ignore="UselessParent">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toStartOf="@id/ic_flag"
-                        android:orientation="vertical"
-                        android:paddingEnd="10dp"
-                        tools:ignore="RtlSymmetry">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/ic_flag"
+                            android:orientation="vertical"
+                            android:paddingEnd="10dp"
+                            tools:ignore="RtlSymmetry">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="@string/language"
-                            android:textColor="?attr/shark_geyser"
-                            android:textSize="14sp"
-                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/language"
+                                android:textColor="?attr/shark_geyser"
+                                android:textSize="14sp"
+                                tools:ignore="ObsoleteLayoutParam,RtlHardcoded"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginRight="5dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="@string/choose_your_language"
-                            android:textColor="@color/pale_sky"
-                            android:textSize="12sp"
-                            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/choose_your_language"
+                                android:textColor="@color/pale_sky"
+                                android:textSize="12sp"
+                                tools:ignore="ObsoleteLayoutParam,RtlHardcoded"/>
 
                     </LinearLayout>
 
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/ic_flag"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/ic_flag"
-                        tools:ignore="ContentDescription,RtlHardcoded" />
+                            android:id="@+id/ic_flag"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_flag"
+                            tools:ignore="ContentDescription,RtlHardcoded"/>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/pale_sky" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/ic_trash_basket"
+                            android:orientation="vertical"
+                            android:paddingEnd="10dp"
+                            tools:ignore="RtlSymmetry">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/delete_counters"
+                                android:textColor="?attr/shark_geyser"
+                                android:textSize="14sp"
+                                tools:ignore="ObsoleteLayoutParam,RtlHardcoded"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/delete_all_existing_counters"
+                                android:textColor="@color/pale_sky"
+                                android:textSize="12sp"
+                                tools:ignore="ObsoleteLayoutParam,RtlHardcoded"/>
+
+                    </LinearLayout>
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ic_trash_basket"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_trash_bin"
+                            android:onClick="@{()->settingViewModel.deleteAll()}"
+                            tools:ignore="ContentDescription,RtlHardcoded"/>
+
 
 
                 </RelativeLayout>

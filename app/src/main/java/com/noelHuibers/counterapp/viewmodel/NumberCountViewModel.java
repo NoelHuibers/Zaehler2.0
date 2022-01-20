@@ -22,6 +22,8 @@ public class NumberCountViewModel extends ViewModel {
     CounterModel counter;
     ArrayList<CounterModel> counterModels;
     int position;
+    String name;
+    int imgId;
 
     public NumberCountViewModel(Context context, Constant constant, NumberCountActivityBinding binding) {
         this.context = context;
@@ -31,6 +33,8 @@ public class NumberCountViewModel extends ViewModel {
         this.position = StoragePositionService.getPosition(context).get(0);
         this.counter = counterModels.get(position);
         int value = counter.getNumber();
+        this.name = counter.getName();
+        this.imgId = counter.getImgId();
         binding.tvCount.setText(String.valueOf(value));
     }
 
@@ -50,5 +54,17 @@ public class NumberCountViewModel extends ViewModel {
         constant.moveBack();
         StorageCounterModelService.update(context, counterModels);
     }
+
+    public void removeCounter() {
+        constant.moveBack();
+        counterModels.remove(position);
+        StorageCounterModelService.update(context,counterModels);
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getImgId() { return imgId; }
 
 }
